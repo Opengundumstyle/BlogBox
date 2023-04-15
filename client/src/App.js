@@ -13,7 +13,7 @@ import Single from './pages/Single'
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Home from './pages/Home'
-
+import './style.scss'
 
 const Layout = ()=>{
   return(
