@@ -2,9 +2,10 @@
 $lightGreen:#b9e7e7;
 
 .app{
-    
+    display: flex;
+    justify-content: center;
     .container{
-
+         width:1024px;
          //Login && register
          .auth{ 
             display:flex;
@@ -55,5 +56,22 @@ $lightGreen:#b9e7e7;
 
             }
          }
+           
+         //Navbar
+         .navbar{
+             .container{
+                 padding:10px 0px;
+                 display: flex;
+                 justify-content: space-between;
+                 .logo{
+                     
+                 }
+                 .links{
+                     
+                 }
+             }
+         }
+      
+
     }
 }
