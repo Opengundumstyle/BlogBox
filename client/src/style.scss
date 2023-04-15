@@ -1,9 +1,14 @@
 
-$lightGreen:#b9e7e7;
-
+$lightGreen:#2F58CD;
+$lightBlue:#B0DAFF;
 .app{
     display: flex;
     justify-content: center;
+
+      .link{
+         text-decoration: none;
+         color: inherit;
+      }
     .container{
          width:1024px;
          //Login && register
@@ -14,7 +19,7 @@ $lightGreen:#b9e7e7;
             justify-content: center;
             height:100vh;
             background-color: $lightGreen;
-
+          
             h1{
                  font-size:20px;
                  color:teal;
@@ -63,15 +68,147 @@ $lightGreen:#b9e7e7;
                  padding:10px 0px;
                  display: flex;
                  justify-content: space-between;
+                 align-items: center;
+
                  .logo{
-                     
+                
                  }
                  .links{
-                     
+                    display:flex;
+                    gap:10px;
+                    align-items: center;
+
+                 h6{
+                     font-size:16px;
+                     font-weight:300;
+                 }
+
+                 span{
+                    cursor:pointer;
+                 }
+               
+                .write{
+                     background-color: $lightGreen;
+                     width:50px;
+                     height:50px;
+                     display:flex;
+                     align-items: center;
+                     justify-content: center;
+                     font-weight: 300;
+                     border: 2px solid white;
+                     color:white;
+                     border-radius: 50%;
+                     &:hover{
+                        font-weight:400;
+                         border-radius: 0;
+                         transition: border-radius 0.2s ease;
+                         font-size: 17px;
+                         
+                     }
+                }
+
+            }
+        }
+    }
+       // Footer 
+         footer{
+              margin-top: 100px;
+              padding:20px;
+              background-color: $lightGreen;
+              display: flex;
+              align-items: center;
+              font-size: 12px;
+              justify-content: space-between;
+              span{ 
+                color:rgba(242, 244, 249, 0.905);
+              }
+
+        }
+
+     // Home page
+      .home{
+         .posts{
+             margin-top: 50px;
+             display:flex;
+             flex-direction: column;
+             gap:150px;
+
+           
+
+             .post{
+                 display: flex;
+                 gap:100px;
+                 &:nth-child(2n+1){
+                    flex-direction: row-reverse;
+                }
+
+                 .img{
+                     flex:2;
+                     position:relative;
+                    
+                        &::after{
+                            content:"";
+                            width: 100%;
+                            height: 100%;
+                            background-color: $lightBlue;
+                            position:absolute;
+                            top:20px;
+                            left:-20px;
+                            z-index: -1;
+                        }
+                         
+                    img{
+                         width:100%;
+                         max-height: 400px;
+                         object-fit: cover;
+                    }
+                 }
+
+                 .content{
+                     flex:3;
+                     display: flex;
+                     flex-direction: column;
+                     justify-content: space-between;
+                      
+                     h1{
+                         font-size:48px;
+                     }
+                     p{
+                         font-style: 18px;
+                     }
+                     button{
+                         width:max-content ;
+                         cursor: pointer;
+                         padding:10px 20px;
+                         border:none;
+                         background-color: white;
+                         border: 1px solid $lightGreen;
+                         color:$lightGreen;
+                         &:hover{
+                             border: 1px solid white;
+                             background-color: $lightGreen;
+                             color:white;
+
+                         }
+                     }
                  }
              }
          }
-      
+      }
+      // single page
+      .single{
+         display:flex;
+         gap:50px;
+
+         .content{
+             flex:5;
+
+         }
+         .menu{
+             flex:2;
+         }
+
+      }
 
     }
 }
