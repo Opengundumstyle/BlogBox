@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
 
 const Home = () => {
   const [posts,setPosts] = useState([])
@@ -9,11 +9,15 @@ const Home = () => {
 
        const fetchData = async()=>{
           try{
-             
+              const res = await axios.get("/posts")
+              setPosts(res.data)
           }catch(err){
-              
+              console.log(err)
           }
        }
+ 
+      fetchData()
+
   },[])
 
   // const posts = [
