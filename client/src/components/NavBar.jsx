@@ -29,10 +29,13 @@ const NavBar = () => {
             <h6>CENIMA</h6>
             </Link>
             <Link className='link' to="/?cat=art">
-            <h6>DESIGN</h6>
+            <h6>MUSIC</h6>
             </Link>
             <Link className='link' to="/?cat=art">
             <h6>FOOD</h6>
+            </Link>
+            <Link className='link' to="/?cat=art">
+            <h6>BUSINESS</h6>
             </Link>
             <span>{currentUser?.username}</span>
             {currentUser?(<span onClick={logout}>Sign out</span>) : <Link className='link' to="/login">Login</Link>}
