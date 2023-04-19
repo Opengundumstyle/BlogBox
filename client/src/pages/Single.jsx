@@ -5,6 +5,7 @@ import Menu from '../components/Menu';
 import axios from 'axios';
 import moment from 'moment'
 import { AuthContext } from '../context/authContext';
+import DOMPurify from "dompurify";
 
 const Single = () => {
 
@@ -41,7 +42,7 @@ const Single = () => {
   const handleDelete = async ()=>{
 
         try{
-          await axios.delete(`/post/${postId}`)
+          await axios.delete(`/posts/${postId}`)
           navigate("/")
         }catch(err){
           
@@ -49,21 +50,20 @@ const Single = () => {
 
   }
 
-
   return (
     <div className='single'>
        <div className="content">
-           <img src={post?.img} alt={post.title}/>
+           <img src={post.img?.includes("https://")? post.img:`../upload/${post.img}`}  alt={post.title}/>
             <div className="user">
                <img src={post.userImg} alt="" />
                 <div className="info">
                 <span>{post.username}</span>
-                <p>posted {moment(post.date).fromNow}</p>
+                <p>Posted {moment(post.date).fromNow()}</p>
                 </div>
              {(currentUser?.currentUser?.username === post.username) && ( 
                       
                     <div className="edit">
-                   <Link to={`/write?edit=2`}>
+                   <Link to={`/write?edit=2`} state={post}>
                      <CiEdit size={25} className='editPost'/>
                    </Link>
                      <CiTrash onClick={handleDelete} size={25} className='deletePost'/>
@@ -72,9 +72,13 @@ const Single = () => {
            
             </div>
             <h1>{post.title}</h1>
-            {post.desc}
+            <p
+               dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(post.desc),
+          }}
+        ></p>   
        </div>
-      <Menu/>
+      <Menu cat={post.cat}/>
     </div>
   )
 }

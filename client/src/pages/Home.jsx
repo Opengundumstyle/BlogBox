@@ -3,10 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 const Home = () => {
+  
   const [posts,setPosts] = useState([])
   const cat = useLocation().search
-
-
 
   useEffect(()=>{
 
@@ -23,7 +22,11 @@ const Home = () => {
       fetchData()
 
   },[cat])
-
+ 
+  const getText  = (html)=>{
+      const doc = new DOMParser().parseFromString(html,"text/html")
+      return doc.body.textContent
+  }
 
   return (
     <div className='home'>
@@ -31,13 +34,13 @@ const Home = () => {
           {posts.map(post =>( 
               <div className='post' key={post.id}> 
                  <div className='img'>
-                    <img src={post.img} alt=""/>
+                    <img src={post.img.includes("https://")? post.img:`../upload/${post.img}`} alt=""/>
                  </div>
                 <div className="content">
                     <Link className ="link" to={`/post/${post.id}`}>
                       <h1>{post.title}</h1>
                     </Link>
-                    <p>{post.desc}</p>
+                    <p>{getText(post.desc)}</p>
                     <button>Read More</button>
                 </div>
               </div>
