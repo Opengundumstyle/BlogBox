@@ -19,22 +19,22 @@ const NavBar = () => {
             <Link className='link' to="/?cat=art">
               <h6>ART</h6>
             </Link>
-            <Link className='link' to="/?cat=art">
+            <Link className='link' to="/?cat=science">
               <h6>SCIENCE</h6> 
             </Link>
-            <Link className='link' to="/?cat=art">
+            <Link className='link' to="/?cat=technology">
             <h6>TECHNOLOGY</h6>
             </Link>
-            <Link className='link' to="/?cat=art">
+            <Link className='link' to="/?cat=cenima">
             <h6>CENIMA</h6>
             </Link>
-            <Link className='link' to="/?cat=art">
+            <Link className='link' to="/?cat=music">
             <h6>MUSIC</h6>
             </Link>
-            <Link className='link' to="/?cat=art">
+            <Link className='link' to="/?cat=food">
             <h6>FOOD</h6>
             </Link>
-            <Link className='link' to="/?cat=art">
+            <Link className='link' to="/?cat=business">
             <h6>BUSINESS</h6>
             </Link>
             <span>{currentUser?.username}</span>
