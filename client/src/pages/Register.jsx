@@ -40,7 +40,7 @@ const Register = () => {
          <input required type="email" placeholder='email'  name="email" onChange={handleChange}/>
          <input required type="password" placeholder='password' name="password" onChange={handleChange}/>
          <button onClick={handleSubmit}>Sign up</button>
-         <p>This is an error!</p>
+         {/* <p>This is an error!</p> */}
          <span>Have an account? <Link to="/login">Login</Link></span> 
       </form>
     </div>
